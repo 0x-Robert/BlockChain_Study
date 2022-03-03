@@ -76,7 +76,7 @@ c. if H(X) == H(Y) then X == Y
 
 
 
-![block_header](/Users/atlas/Documents/block_chain_study/block_header.png)
+![block_header](block_header.png)
 
 
 
