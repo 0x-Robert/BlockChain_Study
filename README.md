@@ -1508,6 +1508,41 @@ block_2 {
 
 ```
 
+</br>
+
+***
+
+</br>
+
+
+## Alice와 Node 사이 통신
+
+
+### Alice >> Node 
+
+* Alice는 TX를 생성, 서명하여 Node에게 전달
+* 이떄 데이터 구조를 온전하게 전달하고자 RLP 알고리즘으로 TX를 직렬화
+* Alice와 Node가 같은 프로토콜로 통신하는 것이 중요
+
+
+</br>
+</br>
+
+###  Node >> Alice
+* 올바른 TX 수신시 TX 해시를 반환
+* TX 체결 시  Receipt를 반환; 소요된 Gas, TX 해시, input 등이 기록
+
+
+</br>
+</br>
+
+
+***
+
+
+</br>
+</br>
+
 
 
 
