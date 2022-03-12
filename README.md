@@ -1423,17 +1423,90 @@ block_2 {
 
 
 
+</br>
+
+
+****
+
+</br>
 
 
 
 
+## 트랜잭션 예시
+
+```
+
+{
+  nonce : 1 ,  #어카운트가 몇번째 트랜잭션을 보내는것인지 말해주는 것  </br>
+  from : '0xd0ea3e0eabaea095ea3ba231c0431sdafda', #sender의 주소 </br>
+  to : '0x5e47b19asdfasdfasfasdfasdfasd0fsadfm9', #recipient의 주소</br>
+  value : 10,  </br> 
+  // omitted other fields for brevity
+  // platform specific fields are required 
+
+} 
+
+```
 
 
+</br>
+
+***
+
+</br>
+
+## Ethereum 트랜잭션 예시
+
+```
+{
+
+  nonce: '0x01',
+  gasPrice : '0x4a817c800',    //20,000,000,000
+  gas : '0x5208',              //21,000 , 내가 몇개까지 gas를 쓰겠다. 
+  value : '0xde0b6b3a7640000', //1,000,000,000,000,000,000 = 1ETH
+
+  to : '0x35353535353535353535353535353535353535',
+  v  : '0x25',
+  r  : '0x4f4c17305743700648bc4f6cd3...757234d9jfa9s',
+  s  : '0xasdfaser23df82n398dfmsd0fs...asdf9n320ds3a'
+  // some fields are omitted for brevity
+  // from은 없음, 그렇게 해서 160비트를 아끼려고 함
+  // v,r,s는  v는 식별자고 ,서명은 r과 s다. 
+}
+
+```
 
 
+</br>
+
+***
+
+</br>
 
 
+## Klaytn 트랜잭션 예시
 
+```
+
+{
+
+  type: 'VALUE_TRANSFER', #Ethereum과 차이점
+  nonce : '0x01',
+  gasPrice: '0x05d21dba00', #사용자가 바꿀수 없음, 고정값 
+  gas : '0x0493e0',
+  value : '0x01',
+
+  to: '0xef5cd88asdf8m0sa9dmf9a0sdfmas0df',
+  from: '0xd01b138d49fb2w324m9eamf09asdsd', #Ethereum과 차이점
+
+  v : '0x07f6',
+  r : '90sadmfas9d0fmsa09..0as9dfnm0sa9dfm90sa',
+  s : '0asdmf9sadmf90saff..90smdf09asdfm9dsfm9'
+
+}
+
+```
 
 
 
