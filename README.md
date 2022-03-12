@@ -1547,6 +1547,98 @@ block_2 {
 
 
 
+## Smart Contracts 
+
+</br>
+
+* 특정 주소에 배포되어 있는 TX로 실행 가능한 코드
+  *  스마트 컨트랙트 소스코드는 **함수**와 **상태**를 표현; 컨트랙트 소스코드는 블록체인에 저장
+  *  함수는 상태를 변경하는 함수, 상태를 변경하지 않는 함수로 분류
+  *  사용자(end user, EOA owner)가 스마트 컨트랙트 함수를 실행하거나 상태를 읽을 때 주소가 필요
+
+</br>
+
+* 스마트 컨트랙트는 사용자가 실행 
+  *  상태를 변경하는 함수를 실행하려면 그에 맞는 TX를 생성하여 블록에 추가 </br>
+     (TX 체결 = 함수의 실행)
+  *  상태를 변경하지 않는 함수, 상태를 읽는 행위는 TX가 필요 없음 </br>
+     (노드에서 실행)
+
+
+
+
+
+</br>
+
+***
+
+</br>
+
+
+## Solidity 
+
+</br>
+
+* Ethereum/Klaytn에서 지원하는 스마트 컨트랙트 언어 
+* Klaytn은 Solidity 버전 0.4.24 , 0.5.6을 지원
+* 일반적인 프로그래밍 언어와 그 문법과 사용이 유사하나 몇가지 제약이 존재
+  * e.g., 포인터의 개념이 없기 때문에 recursive type의 선언이 불가능
+
+</br>
+</br>
+
+
+***
+
+</br>
+
+
+
+## Contract = Code + Data 
+
+</br>
+
+* Solidity 컨트랙트는 코드(함수)와 데이터(상태)로 구성
+* Solidity 함수는 코드 안에 변수로 선언된 상태를 변경하거나 불러옴
+* 아래 예시에서 set, get은 함수, storedData는 상태
+
+
+</br>
+
+```
+contract SimpleStorage {
+
+
+  uint storedData;
+
+  function set(uint x ) public {
+    storedData = x; 
+  }
+
+  function get() public view returns (uint) {
+    return storedData;
+  }
+
+
+}
+
+```
+
+
+</br>
+
+***
+
+</br>
+
+
+
+
+
+
+
+
+
 
 
 
