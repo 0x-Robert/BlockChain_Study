@@ -1754,7 +1754,9 @@ contract Coin {
 
 // [omitted state variables and event definitions for brevity]
 
-// 생성자 함수는 컨트랙트가 생성될 때 한번 실행
+// 생성자 함수는 컨트랙트가 생성될 때 한번 실행!!
+
+
 // 아래 함수는 minter 상태변수에 msg.sender 값을 대입 (함수를 실행한 사람의 주소)
 constructor () public {
   minter = msg.sender;
@@ -1770,35 +1772,328 @@ constructor () public {
 
 
 
+</br>
+
+
+***
+
+
+</br>
+
+
+## Klaytn SDK (Software Developement Kit)
+
+* Klaytn은 BApp 개발을 위해 필요한 SDK를 제공
+* caver-js는 Node.js로 Klaytn BApp을 만들때 필요한 라이브러리를 제공
+* 다음 온라인 문서에서 사용방법을 확인 : https://docs.klaytn.com/dapp/sdk/caver-js
+
+
+</br>
+
+
+***
 
 
 
 
+## 개발환경 셋팅
+
+</br>
+
+### Node.js 설치 
+* https://nodejs.org에서 10.16.3 LTS 설치 (installer/pkg 실행)
+  
+
+### 개발 디렉토리 생성 및 Caver-js 설치
+
+* 성공적으로 Node.js를 설치한 뒤 원하는 위치에 개발 디렉토리를 생성
+  *  mkdir Count && cd Count 
+
+
+* 디렉토리 생성 후 npm으로 Node.js 프로젝트를 초기화, caver-js를 설치 
+  * npm init
+  * npm install caver-js 
+
+
+
+</br>
+
+***
+</br>
+
+
+## Baobab 테스트 넷에 연결
+const Caver = require('caver-js');
+const caver = new Caver('https://api.baobab.klaytn.net:8651/');
+
+
+</br>
 
 
 
 
+</br>
+
+***
+</br>
+
+
+## klay.getBlockNumber()
+
+</br>
+
+```
+const Caver = require('caver-js');
+const caver = new Caver('https://api.baobab.klaytn.net:8651/');
+
+// getBlockNumber() returns a Promise object returning Number 
+
+caver.klay.getBlockNumber(function(err, blockNumber){
+  console.log(blockNumber);
+});
+
+//alternatively
+caver.klay.getBlockNumber().then(console.log);
+```
+
+
+</br>
+
+***
+
+
+## klay.accounts.wallet 
+
+
+</br>
+
+```
+
+const account = caver.klay.accounts.create(); 
+//key pair 생성해줌 , 비밀키,공개키
+
+// in-memory wallet , 어카운트를 담고있는 wallet 지정
+
+const wallet = caver.klay.accounts.wallet;
+
+wallet.add(account);
+
+console.log(wallet.length); // wallet에 저장된 어카운트 갯수를 리턴 
+console.log(wallet[account.address]); //해당 주소를 가지는 어카운트를 불러옴; 없을 경우 undefined 
+console.log(wallet[0]); // 저장된 첫번째 어카운트를 불러옴; 없을 경우 undefined 
+
+
+
+```
+
+</br>
+
+
+***
+
+
+
+## 토큰전송 TX 생성 & 서명 
+
+</br>
+
+```
+
+wallet.clear(); wallet.create(2); // in-memory wallet 초기화 & 어카운트 2개 생성
+
+const tx = {
+
+  type : "VALUE_TRANSFER", from: wallet[0].address, to: wallet[1].address, 
+  // type, sender, recipient 
+  value : caver.utils.toPeb('1','KLAY'),
+  // 1 KLAY 전송 
+  gas : 300000
+  // TX가 사용할 수 있는 가스총량
+};
+
+// 첫번째 어카운트의 비밀키로 서명
+
+caver.klay.accounts.signTransaction(tx,wallet[0].privateKey).then(console.log);
 
 
 
 
+```
+
+</br>
+
+
+*** 
+
+
+</br>
+
+
+## 서명된 TX 전송
+
+</br>
+
+
+```
+
+
+const tx = { ... };
+
+(async () => {
+
+
+
+  const signedTransaction = await caver.klay.accounts.signTransaction(tx, sender.privateKey)
+
+  await caver.klay.sendSignedTransaction(signedTransaction.rawTransaction) 
+
+  .on('transactionHash', function(txhash) { console.log('hash first', txhash); }) // .on은 이벤트 리스닝한다는 것임 , transactionHash면 이 이벤트를 실행한다
+
+  .on('receipt', function(receipt) { console.log('receipt later', receipt); })
+  // .on은 이벤트 리스닝한다는 것임 , receipt면 이 이벤트를 실행한다
+
+  .on('error', function(err) { console.error('something went wrong'); }); 
+
+
+
+})();
+
+```
+
+
+
+</br>
+
+***
+
+
+</br>
+
+## 토큰전송TX + sendTransaction 
+
+```
+
+const tx = {... };
+
+
+caver.klay.sendTransaction(tx) // 서명 + 전송
+  .on('transactionHash', function(txhash){
+    console.log('hash first', txhash);
+  })
+
+  .on('error', function(err){
+    console.log('something went wrong');
+  })
+
+  .on('receipt', function(receipt){
+    console.log('receipt later', receipt);
+  });
+
+
+
+```
+
+
+***
+
+</br>
+
+
+
+## 스마트 컨트랙트 배포
+
+
+</br>
+
+
+```
+
+// 앞서 예제에서 본  SimpleStorage 컨트랙트의 ABI와 Bytecode를 사용
+
+const abi = [ ... ];
+
+const contract = new caver.klay.Contract(abi);
+
+contract.deploy({ data : '6039024-250..0234' })
+
+  .send({from: wallet[1].address,
+         gas: 3000000,
+         value : 0})
+  
+  .on('receipt', function(receipt){
+    //컨트랙트 주소가 receipt에 포함
+    console.log('contract deployed at' ,receipt.contractAddress);
+  })
 
 
 
 
+```
+
+*** 
+
+
+</br>
+
+
+## 스마트 컨트랙트 함수 실행 (mutation, 변화)
+
+
+
+</br>
+
+
+```
+
+const contract = new caver.klay.Contract(abi, '0x20sdfm293f0fma0dfad0sf');
+
+contract.methods.set(100) // SimpleStorage의 set 함수를 실행; 상태를 바꾸는 함수이기 때문에 TX로 실행
+
+.send ({
+  from : wallet[1].address,
+  gas : 3000000
+})
+
+.on('error', function (hash) { ... })
+
+.on('transactionHash', function (hash) { ... })
+
+.on('receipt', function (receipt) { ... })
+
+```
+
+
+
+</br>
+
+
+
+****
+
+
+## 스마트 컨트랙트 함수 실행 (constant, 상태를 바꾸지 않고 읽어옴)
+
+
+```
+
+const contract = new caver.klay.Contract(abi, '0x20sdfm293f0fma0dfad0sf');
+
+// call 함수는 상태를 바꾸는 함수가 아니기 때문에 노드에서 바로 실행 
+
+contract.methods.get().call(null, function (err, result){
+
+  if (err == null){
+    console.log(result);
+  }
+  else{
+    console.error(err);
+  }
+});
 
 
 
 
-
-
-
-
-
-
-
-
-
+```
 
 
 
