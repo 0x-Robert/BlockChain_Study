@@ -1633,6 +1633,142 @@ contract SimpleStorage {
 
 
 
+## Solidity 예제 - Coin 컨트랙트
+
+// Solidity로 간단한 포인트 시스템을 구현
+// [Coin 컨트랙트]
+// 컨트랙트 생성자가 관리하는 포인트 시스템 컨트랙트로 포인트 시스템 고유의
+// 주소공간(address space)을 가지며 각 주소의 포인트 잔고를 기록한다.
+// 컨트랙트 생성자는 사용자 주소(e.g., 0xALICE)에 포인트를 부여할 수 있고
+// 사용자는 다른 사용자에게 포인트를 전송할 수 있다.(e.g., 0xALICE >> 0xBoB, 10 Coins)
+
+```
+contract Coin {
+
+//omitted for brevity
+
+}
+```
+
+
+</br>
+
+***
+
+
+</br>
+
+
+
+## Solidity 예제 - 상태 (State Variables)
+
+</br>
+
+```
+// "pragma solidity" 키워드는 Solidity 버전을 지정
+pragma solidity ^0.5.6;
+
+// "contract X {...}"는  X라는 컨트랙트를 정의
+contract Coin {
+
+  // "minter"는 address 타입으로 선언된 상태;  address 타입은 Ethereum에서 사용하는 160비트 주소
+
+  address public minter; 
+
+  // "balances"는 mapping 타입으로 address 타입 데이터를 key로 uint 타입 데이터를 value로 가지는 key-value mapping 
+  // mapping은 타 프로그래밍 언어에서 사용하는 해시테이블 자료구조와 유사 
+  // (uninitialized 값들은 모두 0으로 초기화 되어있는 상태)
+  mapping (address => uint ) public balances; 
+
+  // omitted for brevity
+  // 간결함을 위해 생략 
+}
+
+```
+
+</br>
+
+
+***
+
+</br>
+
+
+## Solidity 예제 - 이벤트(Events)
+
+</br>
+
+```
+
+contract Coin {
+
+
+// [omitted state variables for brevity ]
+// 간결함을 위해 생략된 상태 변수
+
+
+// event로 정의된 타입은 클라이언트(e.g., application using a platform-specific SDK/Library)가 
+
+// Listening 할 수 있는 데이터로 emit 키워드로 해당 타입의 객체를 생성하여 클라이언트에게 정보를 전달
+
+// usage:
+// /* in Solidity */
+// emit Sent(an_address, another_address, 10);
+// /* in web3.js */
+// Coin.Sent().watch({}, '', function(err, result) {...}; )
+event Sent(address from , address to, uint amount);
+
+// [omitted for brevity]
+// omitted : 생략
+// brevity : 간결,짧음
+}
+
+
+```
+
+</br>
+
+
+</br>
+
+
+
+***
+
+
+
+</br>
+
+## Solidity 예제 - 생성자함수 (Constructor)
+
+</br>
+
+// N.B. 컨트랙트 함수는 함수를 실행한 TX의 정보를 받을 수 있는데 해당 정보를 msg 변수로 접근
+
+// 자세한 정보는 https://docs.soliditylang.org/en/v0.4.24/units-and-global-variables.html#block-and-transaction-properties 참조 
+
+```
+
+contract Coin {
+
+
+// [omitted state variables and event definitions for brevity]
+
+// 생성자 함수는 컨트랙트가 생성될 때 한번 실행
+// 아래 함수는 minter 상태변수에 msg.sender 값을 대입 (함수를 실행한 사람의 주소)
+constructor () public {
+  minter = msg.sender;
+}
+
+// [omitted for brevity]
+
+
+}
+
+
+```
+
+
 
 
 
