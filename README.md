@@ -2070,6 +2070,7 @@ contract.methods.set(100) // SimpleStorage의 set 함수를 실행; 상태를 �
 
 ****
 
+</br>
 
 ## 스마트 컨트랙트 함수 실행 (constant, 상태를 바꾸지 않고 읽어옴)
 
