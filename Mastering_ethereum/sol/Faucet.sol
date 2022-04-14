@@ -10,11 +10,14 @@ contract Faucet {
 
         //요청한 주소로 금액 보내기
         msg.sender.transfer(withdraw_amount);
+        
     }
 
     // 입금 금액 수락
     // function () public payable {} 에러발생 / 원인 : 솔리디티 버전이 올라가면서 payable 함수는 function이 아니라 fallback 으로 수행해야한다.
     fallback () public payable {}
     
+
+
 
 }
