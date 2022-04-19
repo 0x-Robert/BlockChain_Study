@@ -14,5 +14,5 @@ sudo apt install solc
 
 
 solc를 설치한 후에는 실행하여 버전을 확인하자
-
+solc --version
 ````
