@@ -1,5 +1,7 @@
 //암호화 컨트랙트
 //이 컨트랙트는 각 문자를 26자리만큼 이동시키는 ROT26 암호를 구현한다. (즉 아무것도 하지 않는다. )
+// rot13,등 악용사례를 막고자 한다면  new 키워드를 사용하여 컨트랙트를 작성하는 것이다. 생성자를 작성할 때 다음과 같이 한다.
+// encryptionLibrary = new Rot13Encryption(); 
 
 contract Rot26Encryption {
     event Result(string convertedString);

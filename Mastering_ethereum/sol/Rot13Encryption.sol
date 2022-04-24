@@ -1,6 +1,6 @@
 //암호화 컨트랙트
 // ROT13 암호를 구현한 코드
-
+// 이 코드는 문자열(유효성 겁사없이 문자a~z)을 가져와서 각 문자를 오른쪽으로 13칸 이동하여 암호화한다. 즉 a는  n이되고, x는 k가 된다.
 
 contract Rot13Encryption {
 
@@ -28,21 +28,23 @@ contract Rot13Encryption {
         emit Result(text);
     }
 
-// rot13 - 문자열 해독
-function  rot13Decrypt (string text) public {
-    uint256 length = bytes(text).length; 
-    for(var i = 0; i < length; i++){
-        byte char = bytes(text)[i];
-        assembly {
-            char := byte(0,char)
-            if and(gt(char, 0x60), lt(char,0x6E))
-            { char := add(0x7B, sub(char,0x61))}
-            if iszero(eq(char, 0x20))
-            {mstore8(add(add(text, 0x20), mul(i,1)), sub(char,13) )}
+    // rot13 - 문자열 해독
+    function  rot13Decrypt (string text) public {
+        uint256 length = bytes(text).length; 
+        for(var i = 0; i < length; i++){
+            byte char = bytes(text)[i];
+            assembly {
+                char := byte(0,char)
+                if and(gt(char, 0x60), lt(char,0x6E))
+                { char := add(0x7B, sub(char,0x61))}
+                if iszero(eq(char, 0x20))
+                {mstore8(add(add(text, 0x20), mul(i,1)), sub(char,13) )}
+            }
         }
+        emit Result(text);
     }
-    emit Result(text);
-}
+
+
 }
 
 
