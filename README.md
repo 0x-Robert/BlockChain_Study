@@ -125,7 +125,7 @@ c. if H(X) == H(Y) then X == Y
 
 
 
-![block_header](block_header.png)
+![block_header](../img_Folder/block_header.png)
 
 
 
@@ -167,7 +167,7 @@ c. if H(X) == H(Y) then X == Y
 
 
 
-![blockChain_structure](blockChain_structure.png)
+![blockChain_structure](../img_Folder/blockChain_structure.png)
 
 
 
@@ -199,7 +199,7 @@ c. if H(X) == H(Y) then X == Y
 
 
 
-![block_height](block_height.png)
+![block_height](../img_Folder/block_height.png)
 
 
 
@@ -225,7 +225,7 @@ c. if H(X) == H(Y) then X == Y
 
 
 
-![blockchain_network2](blockchain_network2.png)
+![blockchain_network2](../img_Folder/blockchain_network2.png)
 
 
 
@@ -402,7 +402,7 @@ Permisionless/Permissioned는 정보의 제어(Control),즉 무엇이 블록에 
 
 
 
-![BlockChain_graph](BlockChain_graph.png)
+![BlockChain_graph](../img_Folder/BlockChain_graph.png)
 
 
 
@@ -450,7 +450,7 @@ Permisionless/Permissioned는 정보의 제어(Control),즉 무엇이 블록에 
 
 
 
-![kisar](Caesar.jpg)
+![kisar](../img_Folder/Caesar.jpg)
 
 
 
@@ -556,7 +556,7 @@ Permisionless/Permissioned는 정보의 제어(Control),즉 무엇이 블록에 
 
 
 
-![public_key_communication](public_key_communication.jpg)
+![public_key_communication](../img_Folder/public_key_communication.jpg)
 
 
 
@@ -592,7 +592,7 @@ Permisionless/Permissioned는 정보의 제어(Control),즉 무엇이 블록에 
 
 
 
-![internet_communication](internet_communication.png)
+![internet_communication](../img_Folder/internet_communication.png)
 
 
 
@@ -672,7 +672,7 @@ Permisionless/Permissioned는 정보의 제어(Control),즉 무엇이 블록에 
 
 
 
-![internet_communication2](internet_communication2.png)
+![internet_communication2](../img_Folder/internet_communication2.png)
 
 
 
@@ -696,7 +696,7 @@ Permisionless/Permissioned는 정보의 제어(Control),즉 무엇이 블록에 
 
 
 
-![internet_communication3](internet_communication3.png)
+![internet_communication3](../img_Folder/internet_communication3.png)
 
 
 
@@ -722,7 +722,7 @@ Permisionless/Permissioned는 정보의 제어(Control),즉 무엇이 블록에 
 
 
 
-![blockchain_public_key_secret](blockchain_public_key_secret.jpg)
+![blockchain_public_key_secret](../img_Folder/blockchain_public_key_secret.jpg)
 
 
 
@@ -948,7 +948,7 @@ Permisionless/Permissioned는 정보의 제어(Control),즉 무엇이 블록에 
 
 
 
-![transaction](transaction.jpg)
+![transaction](../img_Folder/transaction.jpg)
 
 
 </br>
@@ -1005,7 +1005,7 @@ Permisionless/Permissioned는 정보의 제어(Control),즉 무엇이 블록에 
 
 
 
-![Transaction_Journey](Transaction_Journey.png)
+![Transaction_Journey](../img_Folder/Transaction_Journey.png)
 
 
 
