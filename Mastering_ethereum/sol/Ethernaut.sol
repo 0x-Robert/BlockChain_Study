@@ -22,5 +22,5 @@ contract Token {
     function balanceOf(address _owner) public constant returns (uint balance) {
         return balances[_owner];
     }
-    
+
 }
