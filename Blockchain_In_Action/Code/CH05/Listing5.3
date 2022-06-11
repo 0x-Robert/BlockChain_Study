@@ -1,0 +1,20 @@
+pragma solidity >=0.4.21 <0.6.0;
+contract BlindAuction {
+
+    struct Bid {                   
+        bytes32 blindedBid;
+        uint deposit;
+    }
+
+    // state will be set by beneficiary  
+    enum Phase {Init, Bidding, Reveal, Done}  
+    Phase public state = Phase.Init; 
+
+    address payable beneficiary; //owner  
+    mapping(address => Bid) bids;  
+
+
+    address public highestBidder; 
+    uint public highestBid = 0;   
+    
+    mapping(address => uint) depositReturns; 

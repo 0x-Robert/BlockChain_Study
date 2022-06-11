@@ -1,0 +1,23 @@
+readme: This file.
+
+Ballot*.sol files: The four files with Ballot versions are complete Solidity files that can be loaded into Remix IDE and tested.
+
+
+BallotV1.sol: Define the data structures for the smart contract.
+
+BallotV2.sol: Add the constructor and the function to change the state of voting.
+
+BallotV3.sol: Add a modifier to illustrate the use of Solidity features for enabling trust.
+
+BallotV4.sol: Add other trust elements require(), revert() assert() and a the function access modifier.​
+
+
+Listing3.X files: (7 files) Illustrate the technique and Solidity feature added in the incremental development of the Ballot solution that is described in the chapter.
+
+Listing 3.1: Only data items. Same as BallotV1.sol
+Listing 3.2: Voting states added. Same as BallotV2.sol
+Listing 3.3: Modifier definition and example
+Listing 3.4: Illustrates use of a modifier
+Listing 3.5: Use of modifier validPhase of voting.(BallotV3.sol)
+Listing 3.6: One more modifier onlyChair can register
+Listing 3.7: Solution with all trust rules coded (BallotV4.sol)

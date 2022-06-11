@@ -1,0 +1,16 @@
+
+readme: this file.
+
+These are the artifacts for a developing one Dapp: MPC-Dapp for local deployment on Ganache. Emphasis on using web3 and channel services.
+
+Listing7.1, MPC.sol
+MPC.sol for deploying the channel that holds the escrow and pays the claim from the decentralized participant.
+
+Listing7.2, app.js
+The web application and glue code for interaction of UI with the smart contract.
+
+MPC-Dapp.zip
+The files for MPC-contract and MPC-app of MPC application.
+
+Deployed and testing on Ganache.
+

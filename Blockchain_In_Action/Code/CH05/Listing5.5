@@ -1,0 +1,62 @@
+   constructor(  ) public {    
+        beneficiary = msg.sender;
+        state = Phase.Bidding;
+    }
+
+    function changeState(Phase x) public onlyBeneficiary {
+        if (x < state ) revert();
+        state = x;
+    }
+    
+    function bid(bytes32 blindBid) public payable validPhase(Phase.Bidding)
+    {  
+        bids[msg.sender] = Bid({
+            blindedBid: blindBid,
+            deposit: msg.value
+        });
+    }
+    
+    function reveal(uint value, bytes32 secret) public   validPhase(Phase.Reveal){
+        uint refund = 0;
+            Bid storage bidToCheck = bids[msg.sender];
+            if (bidToCheck.blindedBid == keccak256(abi.encodePacked(value, secret))) {
+            refund += bidToCheck.deposit;
+            if (bidToCheck.deposit >= value) {
+                if (placeBid(msg.sender, value))
+                    refund -= value;
+            }}
+            
+        msg.sender.transfer(refund);
+    }
+
+    function placeBid(address bidder, uint value) internal 
+            returns (bool success)
+    {
+        if (value <= highestBid) {
+            return false;
+        }
+        if (highestBidder != address(0)) {
+            // Refund the previously highest bidder.
+            pendingReturns[highestBidder] += highestBid;
+        }
+        highestBid = value;
+        highestBidder = bidder;
+        return true;
+    }
+
+
+    // Withdraw a non-winning bid
+    function withdraw() public {   
+        uint amount = pendingReturns[msg.sender];
+        require (amount > 0);
+        pendingReturns[msg.sender] = 0;
+        msg.sender.transfer(amount);
+        }
+    
+    
+    //End the auction and send the highest bid to the beneficiary.
+    function auctionEnd() public  validPhase(Phase.Done) 
+    {
+        beneficiary.transfer(highestBid);
+    }
+}

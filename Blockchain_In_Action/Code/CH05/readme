@@ -1,0 +1,21 @@
+
+readme
+
+These are the artifacts for a developing and preparing two smart contracts Counter.sol and BlindAuction.sol for secure public deployment.
+readme: this file
+
+Listing5.1, Counter.sol
+Smart contract for counter.
+
+Listing5.2, Khash.sol
+A utility smart contract for computing secure hash value for an input data.
+
+Listing5.3, BlindAuction.sol
+Smart contract for a new application Blind Auction: only data elements.
+
+Listing5.4, BlindAuction.sol
+Additions to BlindAuction.sol: modifiers added.
+
+Listing5.5, BlindAuction.sol
+Incremental additions to BlindAuction.sol: functions of blind auction added.
+

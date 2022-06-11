@@ -1,0 +1,4 @@
+BIP39 mnemonic generation tool:	https://iancoleman.io/bip39/#english
+
+
+Beneficiary details:	1. Mnemonic or seed phrase from BIP39 tool:	2. Account address Account1 on Metamask: 	3. Infura project name: Role1	4. Infura end point address for Ropsten:	https://ropsten.infura.io/v3/......Bidder1 Details:	1. Mnemonic or seed phrase from BIP39 tool:	2. Account address Account1 on MetaMask: Bidder2 details:	1. Mnemonic or seed phrase from BIP39 tool:	2. Account address Account1 on MetaMask: BlindAuction contract address after successful deploy of smart contract from Beneficiary:	...Keccak hash values for 1, 2 and 3: for bids10xeef3620c18bdc1beca6224de9c623311d384a20fc9e6e958d393e16b74214ebe20x54e5698906dca642811eb2f3a357ebfdc587856bb3208f7bca6a502cadd7157a30x74bbb8fdcb48d6f82df6e9067fd9633fff4cab1103f0d5cb8b4de7214cbdcea1

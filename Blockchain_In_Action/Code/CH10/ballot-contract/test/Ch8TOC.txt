@@ -1,0 +1,47 @@
+8 Going public with Infura and IPFS
+8.1	Public, private and permissioned networks	3
+8.1.1	Nodes, networks and platforms	4
+8.1.2	My experience with managing nodes	6
+8.2	Going public with Infura	7
+8.2.1	Blockchain node as a service	7
+8.3	End-to-end process for public deployment	8
+8.3.1	Account generation and management	9
+8.3.2	Choosing a network and Importing accounts	10
+8.3.3	Collecting Ether from faucets	11
+8.3.4	Creating blockchain nodes on Infura	13
+8.3.5	Installing HDWallet provider	14
+8.3.6	Configure and deploy smart contract and web application	14
+8.4	Deploying BlindAuction Dapp on Infura	15
+8.4.1	Setting up blind auction environment	15
+8.4.2	Configure and deploy beneficiary	18
+8.4.3	Configure and deploy bidders	20
+8.4.4	Interact with deployed blind auction Dapp	21
+8.5	Deploying MPC Dapp on Infura	24
+8.5.1	Setting up MPC environment	24
+8.5.2	Configure and deploy organizer	26
+8.5.3	Configure and deploy worker	30
+8.6	Interplanetary file system (IPFS)	31
+8.6.1	A decentralized file system	31
+8.6.2	So why do you need IPFS?	32
+8.7	Retrospection	33
+8.8	Best practices	34
+8.9	Summary	34
+
+5. 
+5.1	Deploying smart contracts on Ropsten	3
+5.2	Cryptography basics	7
+5.2.1	Symmetric key cryptography	8
+5.2.2	Asymmetric key cryptography—private and public key pair	8
+5.3	Application of public key cryptography	9
+5.4	Hashing basics	10
+5.4.1	Solidity hashing functions	12
+5.5	Application of secure hashing	13
+5.5.1	Blind auction smart contract	14
+Privacy and security aspects	16
+5.5.2	Testing the BlindAuction contract	19
+Test plan	19
+5.6	Introspection	21
+5.7	Best practices	21
+5.8	Summary	22
+
+

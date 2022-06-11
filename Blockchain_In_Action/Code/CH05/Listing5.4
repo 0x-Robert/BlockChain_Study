@@ -1,0 +1,10 @@
+    //modifiers
+    modifier validPhase(Phase reqPhase) 
+    { require(state == reqPhase); 
+      _; 
+    } 
+
+   modifier onlyBeneficiary()
+   { require(msg.sender == beneficiary); 
+      _;
+   }

@@ -1,0 +1,18 @@
+Organizer details: 
+	1. Mnemonic or seed phrase for organizer: 
+
+	2. Account address Account1 on MetaMask: 
+
+	3. Infura project name: Role2 
+
+Infura endpoint address for Ropsten: https://ropsten.infura.io/v3/
+	...
+
+Worker Details: 
+	1. Mnemonic or seed phrase from BIP39 tool:
+   
+	2. Account address Account1 on MetaMask:   
+
+
+MPC smart contract address obtained during deployment:   	
+	...

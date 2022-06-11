@@ -1,0 +1,18 @@
+
+readme: this file.
+
+These are the artifacts for a developing two Dapps: BlindAuction-Dapp and ASK-Dapp for local deployment on Ganache. Emphasis on using encryption and hashing for security and privacy.
+
+Listing6.1, BlindAuction.sol
+BlindAuction.sol with bids sent as encrypted and hashed value.
+
+Listing6.2, ASK.sol
+ASK.sol with the data from the user hashed into a single value.
+
+BlindAuctionV2-Dapp.zip
+The files for BlindAuction-contract and BlindAuction-app of Blind Auction application.
+
+ASKV2-Dapp.zip
+The files for ASK-contract and ASK-app of the ASK application.
+
+
