@@ -75,6 +75,8 @@
 
 </details>
 
+---
+
 <br>
 
 ### 블록체인의 성격
@@ -98,3 +100,95 @@
 ---
 
 </details>
+
+---
+
+<br>
+
+### 이더리움 개발의 4단계
+
+<details>
+   <summary> 예비 답안 보기 (👈 Click)</summary>
+<br />
+
+- 프론티어
+- 홈스테드
+- 메트로폴리스
+- 세레니티
+
+---
+
+</details>
+
+---
+
+<br>
+
+### 이더리움 : 범용블록체인이라고 불리는 이유는?
+
+<details>
+   <summary> 예비 답안 보기 (👈 Click)</summary>
+<br />
+
+- 이더리움은 탈중앙화 상태 머신
+- 이더리움은 키-밸류 튜플로 표현할 수 있는 모든 데이터를 저장할 수 있는 저장소의 상태 전이를 추적한다.
+- 이더리움은 임의의 상태를 추적하고 상태 머신을 프로그래밍하여 합의로 작동하는 월드 와이드 컴퓨터를 뜻한다.
+
+---
+
+</details>
+
+---
+
+<br>
+
+### 이더리움의 구성요소
+
+<details>
+   <summary> 예비 답안 보기 (👈 Click)</summary>
+<br />
+
+#### 피어투피어 네트워크(P2P network)
+
+이더리움은 TCP 포트 30303으로 접속가능한 이더리움 메인네트워크에서 실행되며 DEVp2p라는 프로토콜을 실행한다.
+
+- https://geth.ethereum.org/docs/tools/devp2p
+- https://github.com/ethereum/devp2p/blob/master/README.md
+
+#### 합의규칙(consensus rules)
+
+이더리움의 합의 규칙은 황서(Yellow paper)에 정의
+
+#### 트랜잭션(transactions)
+
+이더리움 트랜잭션은 보낸 사람, 받는 사람, 값 및 데이터 페이로드가 포함된
+네트워크 메시지
+
+#### 상태머신(state machine)
+
+이더리움 상태 전이는 바이트코드(bytecode)를 실행하는 스택 기반 가상머신인 EVM(Ethereum Virtual Machine, 이더리움 가상머신)에 의해 처리된다. 스마트 컨트랙트라는 EVM 프로그램은 고수준 프로그래밍 언어(예: 솔리디티)로 작성되고 EVM에서 실행되도록 바이트코드로 컴파일된다.
+
+#### 데이터 구조(data structure)
+
+이더리움의 상태는 트랜잭션 및 시스템 상태가 머클 패트리샤 트리(Merkle Patricia Tree)라고 하는 시리얼라이즈된 해시데이터 구조로 각 노드의 데이터베이스(database, 일반적으로 구글의 levelDB)에 저장된다.
+
+#### 합의 알고리즘(consensus algorithm)
+
+이더리움은 비트코인의 합의 모델인 나카모토 합의(Nakamoto Consensus)를 사용한다.
+나카모토 합의는 순차 단일 서명 블록을 사용하여 작업증명(PoW)의 중요도 가중치가 가장 긴 체인을 결정한다. 그러나 조만간 지분증명(PoS) 가중 투표시스템인 캐스퍼로 전환할 계획
+
+#### 경제적 보안성(economic security)
+
+이더리움은 지분증명 알고리즘을 사용한다.
+
+#### 클라이언트(clients)
+
+초기에는 geth와 parity 등만 있었지만 현재는 PoS로 전환한 이후 geth, prysm, nethermind, besu, erigon 등 여러 클라이언트가 있고 노드의 종류도 합의노드와 실행노드로 나뉜다.
+
+---
+
+</details>
+
+---
+
+<br>

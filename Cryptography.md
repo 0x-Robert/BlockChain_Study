@@ -51,15 +51,57 @@
 - 페르마의 소정리
   https://namu.wiki/w/%ED%8E%98%EB%A5%B4%EB%A7%88%EC%9D%98%20%EC%86%8C%EC%A0%95%EB%A6%AC
 - 이산로그문제 : https://nyan101.github.io/blog/algorithms-for-discrete-logarithm-problem#:~:text=%EC%9D%B4%EC%82%B0%20%EB%A1%9C%EA%B7%B8%20%EB%AC%B8%EC%A0%9C%EB%8A%94%20%EC%9D%B4%EC%82%B0,k%EB%A5%BC%20%EC%B0%BE%EB%8A%94%20%EB%AC%B8%EC%A0%9C%EC%9D%B4%EB%8B%A4.
-- 정수론 :https://namu.wiki/w/%EC%A0%95%EC%88%98%EB%A1%A0 
-- openssl : https://www.openssl.org/ 
-- 
+- 정수론 :https://namu.wiki/w/%EC%A0%95%EC%88%98%EB%A1%A0
+- openssl : https://www.openssl.org/
+- libsecp256k1 https://github.com/0x-Robert/secp256k1
+- http://wiki.hash.kr/index.php/%ED%83%80%EC%9B%90%EA%B3%A1%EC%84%A0%EC%95%94%ED%98%B8
+- http://wiki.hash.kr/index.php/%EC%9D%B4%EC%82%B0%EB%A1%9C%EA%B7%B8
+- https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%82%B0_%EB%A1%9C%EA%B7%B8
 
 # 출처
 
 마스터링 이더리움
 
 # 기타 개념들
+
+### 이산로그
+
+```
+1. 이산거듭제곱의 역함수다.
+2. a^x = b를 만족하는 x를 가리킨다.
+
+이산 로그(離散--, discrete logarithm)는 일반 로그와 비슷하게 군론에서 정의된 연산으로  a^x=b를 만족하는  x를 가리킨다.
+이산 대수(離散對數)라고 부르기도 한다.
+
+이산 로그의 가장 단순한 형태는 Z[p]에서 정의한다.
+Z[p]의 집합은 {1,2,...p-1}이고 소수 p를 법으로 가지는 모듈로 곱셈에 대해서 닫혀있다.
+이 군에서 어떤 수의 k 제곱을 구하려면, 그 수를 k번 제곱한 다음 p로 나눈 나머지를 구하면 된다. 이런 연산을 이산 거듭제곱(discrete exponentiation)이라고 한다.
+예를 들어, Z[7]*에서 3의 5제곱을 구하는 경우, 35=243 이고 243을 7로 나눈 나머지가 5이므로 Z[7]*에서 3^5=5이다.
+이산 로그는 이산 거듭제곱의 역함수이다.
+앞의 예제를 사용하여 설명하면, 3^k ≡ 5 (mod 7)일 때 이 조건을 만족시키는 가장 작은 k가 Z[7]*에서 밑이 3인 5의 이산 로그값이다.
+이산로그문제(discrete logarithm problem)라고도 한다.
+
+이산 로그의 정의를 일반화하면 다음과 같다. G가 n개의 원소를 가진 유한 순환군이라고 하자. 이 군은 곱셈군이라고 가정한다. b가 G의 생성원(primitive root, primitive element)이면 G의 모든 원소 x는 임의의 정수 k에 대하여 x = bk의 형태로 쓸 수 있다. 또한 x를 표현하는 모든 원소들은 모듈로 n에 대해 합동이다. 이런 조건에서 다음과 같은 함수를 정의한다.
+
+log[b] : G -> Z[n]
+
+
+
+```
+
+### 순환군
+
+```
+군론에서 순환군(循環群, 영어: cyclic group)은 한 원소로 생성될 수 있는 군이다.
+즉, 순환군의 모든 원소는 어떤 고정된 원소의 거듭제곱이다.
+(군의 연산이 곱셈이 아닌 덧셈일 경우, 모든 원소는 고정 원소의 정수배이다.)
+
+여기서 Zn은 정수 n을 법으로 가지는 환이고 x에는 모듈로 n에 대한 congruence class를 할당한다. 이와 같은 군 동형사상을 밑이 b인 이산 로그라고 부른다.
+
+로그 함수의 밑변환은 이산 로그에서도 그대로 적용된다. c가 G의 또다른 생성원이면, 다음 식이 성립한다.
+
+log[c]{x} = log[c]{b} * loc[c]{x}
+```
 
 ### 이산로그 문제
 
@@ -143,3 +185,7 @@ Die Mathematik ist die Königin der Wissenschaften, und die Arithmetik ist die K
 
 정수론, 또는 수론은 정수(ℤ)의 성질 또는 정수가 등장하는 경우[2]들을 연구하는 학문이다. 위의 가우스 명언 속에서 보이듯 원래 정수론은 산술(Arithmetik)에서 출발했으나 현대 독일어에서도 산술이 아닌 Zahlentheorie라 부른다[3].
 ```
+
+### 합성수
+
+어떤 수를 1보다 큰 동일한 수로 분해할 수 있다면 이것을 합성수라고 한다.
