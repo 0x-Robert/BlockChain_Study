@@ -192,3 +192,19 @@
 ---
 
 <br>
+
+### EDCSA란 ?
+
+<details>
+   <summary> 예비 답안 보기 (👈 Click)</summary>
+<br />
+
+- 타원 곡선 디지털 서명 알고리즘(Elliptic Curve Digital Signature Algorithm)의 줄임말이며 타원 곡선의 개인키-공개키 쌍을 기반으로 한다.
+
+---
+
+</details>
+
+---
+
+<br>
